@@ -5,11 +5,11 @@ export default function Movies({ counties }) {
   console.log(counties);
   return (
     <div>
-      <h1>Top 20 counties of All Time</h1>
+      <h1>Top 20 counties</h1>
       <ul>
         {counties.map((c, i) => (
           <li>
-            <h2>{c.COUNTY}</h2>
+            <h6>{c.COUNTY}</h6>
             <p>{c.POP}</p>
           </li>
         ))}
