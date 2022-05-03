@@ -2,9 +2,6 @@
 
 import { connectToDatabase } from "../../lib/mongodb";
 
-//
-let col = process.env.MONGODB_COL;
-
 // query
 let query = { AMPKE001: { $gt: 500000 } };
 
