@@ -1,7 +1,7 @@
 // pages/counties.js
 import { connectToDatabase } from "../lib/mongodb";
 
-export default function Movies({ counties }) {
+export default function Counties({ counties }) {
   console.log(counties);
   return (
     <div>
