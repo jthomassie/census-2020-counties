@@ -12,9 +12,9 @@ export async function getServerSideProps() {
   let dev = process.env.NODE_ENV !== "production";
   let DEV_URL = process.env.DEV_URL;
   let PROD_URL = process.env.PROD_URL;
-  let url = `${dev ? DEV_URL : PROD_URL}${API}`;
+  let API_URL = `${dev ? DEV_URL : PROD_URL}${API}`;
   //
-  const counties = await fetcher(url);
+  const counties = await fetcher(API_URL);
   return {
     props: {
       fallback: {
@@ -26,12 +26,12 @@ export async function getServerSideProps() {
 
 const Repo = () => {
   //
-  let dev = process.env.NODE_ENV !== "production";
-  let DEV_URL = process.env.DEV_URL;
-  let PROD_URL = process.env.PROD_URL;
-  let url = `${dev ? DEV_URL : PROD_URL}${API}`;
+  // let dev = process.env.NODE_ENV !== "production";
+  // let DEV_URL = process.env.DEV_URL;
+  // let PROD_URL = process.env.PROD_URL;
+  // let API_URL = `${dev ? DEV_URL : PROD_URL}${API}`;
   //
-  const { data, error } = useSWR(url);
+  const { data, error } = useSWR(API_URL);
 
   // there should be no `undefined` state
   console.log("Is data ready?", !!data);
