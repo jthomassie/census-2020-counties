@@ -129,18 +129,6 @@ const Connect = async (req, res) => {
     AMPWM010: 0,
   };
 
-  // clean up aggregation
-  // const counties = await db
-  //   .collection(col)
-  //   .aggregate([
-  //     { $match: query },
-  //     // { $group: group },
-  //     { $project: withoutAtts },
-  //     // { $sort: { GISJOIN: 1 } },
-  //     { $out: { db: "census2020", coll: "countiesclean" } },
-  //   ])
-  //   .toArray();
-
   // filter aggregation
   const counties = await db
     .collection("countiesclean")
@@ -150,16 +138,6 @@ const Connect = async (req, res) => {
       { $sort: { POP: -1 } },
     ])
     .toArray();
-
-  // query
-  // const counties = await db
-  //   .collection("countiesclean")
-  //   .find(query)
-  //   .project(withAtts)
-  //   .sort({ AMPKE001: -1 })
-  //   // .limit(20)
-  //   .toArray();
-
   //
   res.status(200).json({ counties });
 };

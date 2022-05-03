@@ -3,7 +3,7 @@ import { connectToDatabase } from "../lib/mongodb";
 
 export default function Top({ counties }) {
   return (
-    <div>
+    <>
       <h1>Top Counties</h1>
       <ul>
         {counties.map((c, i) => (
@@ -13,7 +13,7 @@ export default function Top({ counties }) {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 }
 
