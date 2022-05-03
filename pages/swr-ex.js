@@ -20,6 +20,7 @@ export async function getServerSideProps() {
       fallback: {
         [API]: counties,
       },
+      myurl: API_URL,
     },
   };
 }
@@ -31,7 +32,7 @@ const Repo = () => {
   // let PROD_URL = process.env.PROD_URL;
   // let API_URL = `${dev ? DEV_URL : PROD_URL}${API}`;
   //
-  const { data, error } = useSWR(API_URL);
+  const { data, error } = useSWR(API);
 
   // there should be no `undefined` state
   console.log("Is data ready?", !!data);
@@ -70,8 +71,8 @@ const Repo = () => {
   );
 };
 
-export default function App({ fallback }) {
-  console.log("fallback", fallback);
+export default function App({ fallback, myurl }) {
+  console.log("myurl", myurl);
   return (
     <SWRConfig value={{ fallback }}>
       <Repo />
