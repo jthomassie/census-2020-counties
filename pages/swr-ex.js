@@ -26,7 +26,12 @@ export async function getServerSideProps() {
 
 const Repo = () => {
   //
-  const { data, error } = useSWR(API);
+  let dev = process.env.NODE_ENV !== "production";
+  let DEV_URL = process.env.DEV_URL;
+  let PROD_URL = process.env.PROD_URL;
+  let url = `${dev ? DEV_URL : PROD_URL}${API}`;
+  //
+  const { data, error } = useSWR(url);
 
   // there should be no `undefined` state
   console.log("Is data ready?", !!data);
