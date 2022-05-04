@@ -47,6 +47,11 @@ const Navlinks = ({ active }) => {
             </Link>
           </li>
           <li>
+            <Link href="/map">
+              <a>map</a>
+            </Link>
+          </li>
+          <li>
             <Link href="/swr-ex">
               <a>swr-ex</a>
             </Link>
