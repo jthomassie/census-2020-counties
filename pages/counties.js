@@ -3,7 +3,7 @@ import { connectToDatabase } from "../lib/mongodb";
 
 //
 const Counties = ({ counties }) => {
-  console.log(counties);
+  console.log(counties[0]);
   return (
     <>
       <div className="container">
@@ -31,8 +31,8 @@ export async function getServerSideProps() {
   const { db } = await connectToDatabase();
   const counties = await db
     .collection("countiesclean")
-    .find({})
-    // .sort({ metacritic: -1 })
+    .find({ STATEA: { $ne: "State Code" } })
+    .sort({ AMPKE001: -1 })
     .limit(20)
     .toArray();
   //

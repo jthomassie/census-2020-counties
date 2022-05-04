@@ -28,7 +28,8 @@ export async function getStaticProps() {
 
   const counties = await db
     .collection("counties")
-    .find({})
+    .find({ STATEA: { $ne: "State Code" } })
+    .sort({ AMPKE001: -1 })
     .limit(100)
     .toArray();
 
