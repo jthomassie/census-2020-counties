@@ -9,7 +9,7 @@ const API = "/api/population";
 
 const MapApp = () => {
   // swr
-  const address = "/api/inregion";
+  const address = "/api/ra-features";
   const { data, error } = useSWR(address, fetcher, {
     revalidateOnFocus: true,
   });
@@ -21,10 +21,15 @@ const MapApp = () => {
   //
   let mapdata = {
     type: "FeatureCollection",
-    features: data,
+    features: [],
   };
-  console.log("map data", mapdata);
-
+  if (!!data) {
+    mapdata = {
+      type: "FeatureCollection",
+      features: data.fountains,
+    };
+    //console.log("map data", mapdata);
+  }
   //
   return (
     <>

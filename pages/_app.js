@@ -3,7 +3,8 @@
 import Head from "next/head";
 
 import "../styles/global-vars.scss";
-// import "mapbox-gl/dist/mapbox-gl.css";
+import "mapbox-gl/dist/mapbox-gl.css";
+import "../styles/map.css";
 import "../styles/globals.css";
 
 const App = ({ Component, pageProps }) => {

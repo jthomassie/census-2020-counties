@@ -55,6 +55,9 @@ span.strong {
 .gray-text {
   color: #a4a4a4;
 }
+.black-text {
+  color: #111;
+}
 
 .black {
   color: #fff;

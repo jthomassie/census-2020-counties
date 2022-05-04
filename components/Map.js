@@ -160,10 +160,10 @@ const Map = ({ mapdata }) => {
       let color = layer[nm].color;
       let layerName = layer[nm].nm;
       let htmlProps = propsToHtml(props);
-      let html = `<div class="pop"><span class="pop bold lg">${title}</span></div>`;
-      html += `<div class="pop"><span class="dot ${color}"></span><span class="pop bold">${layerName}</span></div>`;
+      let html = `<div class="pop"><span class="pop bold black-text lg">${title}</span></div>`;
+      html += `<div class="pop"><span class="dot ${color}"></span><span class="pop bold black-text ">${layerName}</span></div>`;
       if (length != 0) {
-        html += `<div class="pop"><span class="pop bold">${length}</span></div>`;
+        html += `<div class="pop"><span class="pop boldblack-text ">${length}</span></div>`;
       }
       html += `<hr />`;
       html += htmlProps;
@@ -239,10 +239,13 @@ const Map = ({ mapdata }) => {
     if (!map) {
       return;
     }
+    console.log(mapdata);
+
     setMapdata(mapData);
     map.getSource("features").setData(mapdata);
     // zoom to features bounds
     let bbox = turf.bbox(mapdata);
+    //console.log(bbox);
     map.fitBounds(bbox, {
       padding: 30,
       speed: 0.5,
