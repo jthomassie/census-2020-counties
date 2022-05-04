@@ -24,6 +24,6 @@ export default App;
 
 // fetch on build executed server side
 export async function getStaticProps() {
-  const { getTaxiData } = require("../lib/helpers");
-  return { props: await getTaxiData(), revalidate: 1 };
+  const { getCounties } = require("../lib/counties");
+  return { props: await getCounties(), revalidate: 1 };
 }

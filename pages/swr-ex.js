@@ -3,7 +3,7 @@
 import useSWR, { SWRConfig } from "swr";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
-const API = "/api/counties";
+const API = "/api/population";
 
 // server side fetch on build
 export async function getServerSideProps() {

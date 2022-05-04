@@ -4,15 +4,21 @@ import { connectToDatabase } from "../lib/mongodb";
 export default function Top({ counties }) {
   return (
     <>
-      <h1>Top Counties</h1>
-      <ul>
-        {counties.map((c, i) => (
-          <li>
-            <h6>{c.COUNTY}</h6>
-            <p>{c.POP}</p>
-          </li>
-        ))}
-      </ul>
+      <div className="container">
+        <div className="row">
+          <div className="col mt-5">
+            <h1>Top 100 counties</h1>
+            <ul className="list-unstyled">
+              {counties.map((c, i) => (
+                <li key={`i-${i}`}>
+                  <h6 className="m-0">{c.COUNTY}</h6>
+                  <p className="m-0 mb-2">{c.AMPKE001.toLocaleString()}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
