@@ -1,7 +1,7 @@
 // pages/counties.js
 
 import { connectToDatabase } from "../lib/mongodb";
-import Navlinks from "../components/Naavlinks";
+import Navlinks from "../components/Navlinks";
 
 //
 const Counties = ({ counties }) => {
@@ -10,16 +10,16 @@ const Counties = ({ counties }) => {
     <>
       <div className="container">
         <div className="row">
-          <div className="col-2 mt-5">
-            <Navlinks />
+          <div className="col-4 col-md-3 col-lg-2 mt-5">
+            <Navlinks active={"counties"} />
           </div>
 
-          <div className="col-10 mt-5">
+          <div className="col-8 col-md-9 col-lg-10 mt-5">
             <h1>Top 20 counties</h1>
             <ul className="list-unstyled">
               {counties.map((c, i) => (
                 <li key={`i-${i}`}>
-                  <h6 className="m-0">{c.COUNTY}</h6>
+                  <h6 className="m-0">{`${i + 1}. ${c.COUNTY}`}</h6>
                   <p className="m-0 mb-2">{c.AMPKE001.toLocaleString()}</p>
                 </li>
               ))}

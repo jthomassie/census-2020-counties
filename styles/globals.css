@@ -5,30 +5,28 @@ body {
 }
 
 /*  */
-a:link,
-.dddlink:link {
-  color: #bccfde;
+a,
+a:link {
+  color: #d4d4d4;
   text-decoration: none;
 }
 
-a:visited,
-.dddlink:visited {
-  color: #bccfde;
+a:visited {
+  color: #d4d4d4;
   text-decoration: none;
 }
 
-a:hover,
-.dddlink:hover {
-  color: #a8c6dc;
+a:hover {
+  color: #5f92b8;
   text-decoration: underline;
 }
 
-a:active,
-.dddlink:active {
-  color: #a8c6dc;
+a:active {
+  color: #5f92b8;
   text-decoration: underline;
 }
 
+/*  */
 .tight-p {
   margin: 0;
   padding: 0;

@@ -1,4 +1,4 @@
-// pages/swr-ex.js
+// pages/ra-data.js
 
 import useSWR, { SWRConfig } from "swr";
 import Navlinks from "../components/Navlinks";
@@ -27,11 +27,6 @@ export async function getServerSideProps() {
 }
 
 const Repo = () => {
-  //
-  // let dev = process.env.NODE_ENV !== "production";
-  // let DEV_URL = process.env.DEV_URL;
-  // let PROD_URL = process.env.PROD_URL;
-  // let API_URL = `${dev ? DEV_URL : PROD_URL}${API}`;
   //
   const { data, error } = useSWR(API);
 
@@ -62,11 +57,11 @@ const Repo = () => {
       <div className="container">
         <div className="row">
           <div className="col-4 col-md-3 col-lg-2 mt-5">
-            <Navlinks active={"swr-ex"} />
+            <Navlinks active={"data"} />
           </div>
 
           <div className="col-8 col-md-9 col-lg-10 mt-5">
-            <h1>swr-ex</h1>
+            <h1>ra-data</h1>
             <ul className="list-unstyled">
               <County data={data} />
             </ul>

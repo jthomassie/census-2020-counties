@@ -3,7 +3,8 @@
 import Link from "next/link";
 
 //
-const Navlinks = () => {
+const Navlinks = ({ active }) => {
+  console.log("active", active);
   return (
     <div className="px-3 py-2 gray rounded-3">
       <div className="mb-3">
@@ -19,6 +20,11 @@ const Navlinks = () => {
               <a>population</a>
             </Link>
           </li>
+          <li>
+            <Link href="/api/subtypes">
+              <a>subtypes</a>
+            </Link>
+          </li>
         </ul>
       </div>
 
@@ -26,18 +32,18 @@ const Navlinks = () => {
         <h3 className="m-0">pages</h3>
         <ul className="list-unstyled">
           <li>
-            <Link href="/med-age">
-              <a>med-age</a>
+            <Link href="/">
+              <a>home</a>
             </Link>
           </li>
           <li>
-            <Link href="/counties">
-              <a>counties</a>
+            <Link href="/top20">
+              <a>top20</a>
             </Link>
           </li>
           <li>
-            <Link href="/data">
-              <a>data</a>
+            <Link href="/top1000">
+              <a>top1000</a>
             </Link>
           </li>
           <li>
@@ -46,13 +52,18 @@ const Navlinks = () => {
             </Link>
           </li>
           <li>
+            <Link href="/ra-data">
+              <a>ra-data</a>
+            </Link>
+          </li>
+          <li>
             <Link href="/swr">
               <a>swr</a>
             </Link>
           </li>
           <li>
-            <Link href="/top">
-              <a>top</a>
+            <Link href="/med-age">
+              <a>med-age</a>
             </Link>
           </li>
         </ul>

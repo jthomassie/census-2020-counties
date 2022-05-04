@@ -2,7 +2,7 @@
 
 import Head from "next/head";
 import Link from "next/link";
-import Navlinks from "../components/Naavlinks";
+import Navlinks from "../components/Navlinks";
 
 //
 const Home = () => {
@@ -17,12 +17,13 @@ const Home = () => {
       <main className="">
         <div className="container">
           <div className="row">
-            <div className="col-2 mt-5">
-              <Navlinks />
+            <div className="col-4 col-md-3 col-lg-2 mt-5">
+              <Navlinks active={"home"} />
             </div>
 
-            <div className="col-10 mt-5">
-              <h1>Data editor</h1>
+            <div className="col-8 col-md-9 col-lg-10 mt-5">
+              <h1>Features editor</h1>
+              <h5>Built with: next, mongodb, swr, bootstrap, mapbox-gl</h5>
             </div>
           </div>
         </div>
