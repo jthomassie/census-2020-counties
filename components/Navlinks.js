@@ -56,7 +56,7 @@ const Navlinks = ({ active }) => {
               <a>ra-data</a>
             </Link>
           </li>
-          <li>
+          {/* <li>
             <Link href="/swr">
               <a>swr</a>
             </Link>
@@ -65,7 +65,7 @@ const Navlinks = ({ active }) => {
             <Link href="/med-age">
               <a>med-age</a>
             </Link>
-          </li>
+          </li> */}
         </ul>
       </div>
     </div>
