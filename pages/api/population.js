@@ -10,8 +10,9 @@ let group = {
   _id: "$properties.SUBTYPE",
   count: { $count: {} },
 };
+
 //
-const Connect = async (req, res) => {
+const handler = async (req, res) => {
   const { db } = await connectToDatabase();
 
   let withAtts = {
@@ -142,4 +143,4 @@ const Connect = async (req, res) => {
   res.status(200).json({ counties });
 };
 
-export default Connect;
+export default handler;
