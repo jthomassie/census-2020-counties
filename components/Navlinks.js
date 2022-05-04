@@ -16,13 +16,13 @@ const Navlinks = ({ active }) => {
             </Link>
           </li>
           <li>
-            <Link href="/top20">
-              <a>top20</a>
+            <Link href="/top20counties">
+              <a>top20counties</a>
             </Link>
           </li>
           <li>
-            <Link href="/top1000">
-              <a>top1000</a>
+            <Link href="/allcounties">
+              <a>allcounties</a>
             </Link>
           </li>
           <li>

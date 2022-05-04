@@ -1,11 +1,9 @@
-// pages/counties.js
+// pages/top.js
 
 import { connectToDatabase } from "../lib/mongodb";
 import Navlinks from "../components/Navlinks";
 
-//
-const Counties = ({ counties }) => {
-  console.log(counties[0]);
+export default function Top({ counties }) {
   return (
     <>
       <div className="container">
@@ -15,7 +13,8 @@ const Counties = ({ counties }) => {
           </div>
 
           <div className="col-8 col-md-9 col-lg-10 mt-5">
-            <h1>Top 20 counties</h1>
+            <h1>All counties</h1>
+            <p>Uses getStaticProps()</p>
             <ul className="list-unstyled">
               {counties.map((c, i) => (
                 <li key={`i-${i}`}>
@@ -29,19 +28,18 @@ const Counties = ({ counties }) => {
       </div>
     </>
   );
-};
-export default Counties;
+}
 
-//
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { db } = await connectToDatabase();
+
   const counties = await db
     .collection("countiesclean")
     .find({ STATEA: { $ne: "State Code" } })
     .sort({ AMPKE001: -1 })
-    .limit(20)
+    // .limit(3000)
     .toArray();
-  //
+
   return {
     props: {
       counties: JSON.parse(JSON.stringify(counties)),
