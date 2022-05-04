@@ -1,9 +1,7 @@
 // pages/api/landsname.js
 
-import { connectToDatabase } from "../lib/database";
+import { connectToRamapdb } from "../../lib/ramapdb";
 import { sevenCounty } from "../../geojson/sevenCounty";
-
-let col = process.env.MONGODB_COL;
 
 // is point within 7-couunty boundary
 let geoquery = {
@@ -14,21 +12,14 @@ let geoquery = {
   },
 };
 
-// group, count by lands_name
-let lands_name = {
-  _id: "$properties.LANDS_NAME",
-  count: { $count: {} },
-};
-
 //
 module.exports = async (req, res) => {
   if (req.method === "GET") {
-    const { db } = await connectToDatabase();
-    const collection = await db.collection(col);
+    const { db } = await connectToRamapdb();
+    const collection = await db.collection("odnr_waterway_points");
     const inregion = await collection
       .aggregate([
         { $match: geoquery },
-        // { $group: lands_name },
         { $sort: { count: -1, "properties.LANDS_NAME": 1 } },
       ])
       .toArray();
