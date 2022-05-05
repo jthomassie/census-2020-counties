@@ -1,91 +1,56 @@
-// coomponents/Navlinks.js
+// components/Navlinks.js
 
 import Link from "next/link";
 
 //
 const Navlinks = ({ active }) => {
+  //
+  let pageLinks = [
+    { href: "/", lbl: "home" },
+    { href: "/topcounties", lbl: "topcounties" },
+    { href: "/allcounties", lbl: "allcounties" },
+    { href: "/map", lbl: "map" },
+    { href: "/subtype-map", lbl: "subtype-map" },
+    { href: "/swr-ex", lbl: "swr-ex" },
+    { href: "/ra-data", lbl: "ra-data" },
+  ];
+  let apiLinks = [
+    { href: "/api/median-age", lbl: "median-age" },
+    { href: "/api/population", lbl: "population" },
+    { href: "/api/subtypes", lbl: "subtypes" },
+    { href: "/api/ra-features", lbl: "ra-features" },
+    { href: "/api/inregion", lbl: "inregion" },
+  ];
   console.log("active", active);
   return (
-    <div className="px-3 py-2 gray rounded-3">
+    <div className="px-3 py-2 dk-gray rounded-3">
       <div className="mb-3">
-        <h3 className="m-0">pages</h3>
+        <h3 className="m-0 mb-1">pages</h3>
         <ul className="list-unstyled">
-          <li>
-            <Link href="/">
-              <a>home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/topcounties">
-              <a>topcounties</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/allcounties">
-              <a>allcounties</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/map">
-              <a>map</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/swr-ex">
-              <a>swr-ex</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/ra-data">
-              <a>ra-data</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/rsubtype-map">
-              <a>subtype-map</a>
-            </Link>
-          </li>
-          {/* <li>
-            <Link href="/swr">
-              <a>swr</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/med-age">
-              <a>med-age</a>
-            </Link>
-          </li> */}
+          {pageLinks.map((link, i) => (
+            <li key={`i1-${i}`}>
+              <Link href={link.href}>
+                <a className={link.lbl === active ? "active" : ""}>
+                  {link.lbl}
+                </a>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
 
       <div className="mb-3">
-        <h3 className="m-0">api</h3>
+        <h3 className="m-0 mb-1">api</h3>
         <ul className="list-unstyled">
-          <li>
-            <Link href="/api/median-age">
-              <a>median-age</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/api/population">
-              <a>population</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/api/subtypes">
-              <a>subtypes</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/api/ra-features">
-              <a>ra-features</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/api/inregion">
-              <a>inregion</a>
-            </Link>
-          </li>
+          {apiLinks.map((link, i) => (
+            <li key={`i2-${i}`}>
+              <Link href={link.href}>
+                <a className={link.lbl === active ? "active" : ""}>
+                  {link.lbl}
+                </a>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
