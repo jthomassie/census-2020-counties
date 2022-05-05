@@ -47,6 +47,35 @@ span.strong {
   height: 80vh;
 }
 
+/* layer buttons */
+
+.layer-button {
+  border-radius: 2rem;
+  line-height: 1.1;
+  font-size: 12px;
+  /* font-weight: 700; */
+  background-color: #fff;
+  color: #111;
+  border: none;
+  padding: 5px 14px 5px 9px;
+  margin: 0.1rem 0.1rem;
+}
+
+.layer-button.hilite,
+.layer-button.hilite:hover {
+  /* background-color: #e45d03; */
+  color: #eee;
+}
+
+.layer-button:hover {
+  background-color: #dbdbdb;
+}
+
+.layer-button:active {
+  /* background-color: #e45d03; */
+  color: #eee;
+}
+
 /*  */
 .gray {
   background-color: #454545;

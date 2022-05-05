@@ -7,7 +7,7 @@
 - Set up a Next.js API that connects to a Mongodb collection of geojson map features using SWR.
 - Filter the geojson features with queries and aggregations to create layers on a Mapbox map.
 - Use the interactive map and Bootstrap forms to filter, create, update, or delete features in the database.
-- Note: this is a work-in-progress...
+- Note: This repo is work in progress.
 
 ## Get Started
 

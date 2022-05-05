@@ -16,8 +16,8 @@ const Navlinks = ({ active }) => {
             </Link>
           </li>
           <li>
-            <Link href="/top20counties">
-              <a>top20counties</a>
+            <Link href="/topcounties">
+              <a>topcounties</a>
             </Link>
           </li>
           <li>
@@ -38,6 +38,11 @@ const Navlinks = ({ active }) => {
           <li>
             <Link href="/ra-data">
               <a>ra-data</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/rsubtype-map">
+              <a>subtype-map</a>
             </Link>
           </li>
           {/* <li>
