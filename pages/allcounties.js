@@ -1,6 +1,6 @@
-// pages/top.js
+// pages/allcounties.js
 
-import { connectToDatabase } from "../lib/mongodb";
+import { connectToCensusDb } from "../lib/mongodb";
 import Navlinks from "../components/Navlinks";
 
 export default function Top({ counties }) {
@@ -31,7 +31,7 @@ export default function Top({ counties }) {
 }
 
 export async function getStaticProps() {
-  const { db } = await connectToDatabase();
+  const { db } = await connectToCensusDb();
 
   const counties = await db
     .collection("countiesclean")

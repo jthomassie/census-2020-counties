@@ -1,6 +1,6 @@
 // pages/api/subtypes.js
 
-import { connectToRamapdb } from "../../lib/ramapdb";
+import { connectToRaMapDb } from "../../lib/ramapdb";
 import { sevenCounty } from "../../geojson/sevenCounty";
 
 // is point within 7-couunty boundary
@@ -19,10 +19,11 @@ let subtype = {
 };
 
 //
-module.exports = async (req, res) => {
+const handler = async (req, res) => {
   if (req.method === "GET") {
-    const { db } = await connectToRamapdb();
+    const { db } = await connectToRaMapDb();
     const collection = await db.collection("odnr_waterway_points");
+    //
     const subtypes = await collection
       .aggregate([
         { $match: geoquery },
@@ -35,3 +36,5 @@ module.exports = async (req, res) => {
     res.status(404).json({ status: "Error route not found" });
   }
 };
+
+export default handler;

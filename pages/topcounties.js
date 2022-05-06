@@ -1,10 +1,27 @@
-// pages/counties.js
+// pages/topcounties.js
 
-import { connectToDatabase } from "../lib/mongodb";
+import { connectToCensusDb } from "../lib/mongodb";
 import Navlinks from "../components/Navlinks";
 
+// query db on serverside build
+export async function getServerSideProps() {
+  const { db } = await connectToCensusDb();
+  const counties = await db
+    .collection("countiesclean")
+    .find({ STATEA: { $ne: "State Code" } })
+    .sort({ AMPKE001: -1 })
+    .limit(20)
+    .toArray();
+  //
+  return {
+    props: {
+      counties: JSON.parse(JSON.stringify(counties)),
+    },
+  };
+}
+
 //
-const Counties = ({ counties }) => {
+const Features = ({ counties }) => {
   console.log(counties[0]);
   return (
     <>
@@ -31,21 +48,4 @@ const Counties = ({ counties }) => {
     </>
   );
 };
-export default Counties;
-
-//
-export async function getServerSideProps() {
-  const { db } = await connectToDatabase();
-  const counties = await db
-    .collection("countiesclean")
-    .find({ STATEA: { $ne: "State Code" } })
-    .sort({ AMPKE001: -1 })
-    .limit(20)
-    .toArray();
-  //
-  return {
-    props: {
-      counties: JSON.parse(JSON.stringify(counties)),
-    },
-  };
-}
+export default Features;

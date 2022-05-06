@@ -24,6 +24,7 @@ const Home = () => {
             <div className="col-8 col-md-9 col-lg-10 mt-5">
               <h1>Features editor</h1>
               <h5>Built with: next, mongodb, swr, bootstrap, mapbox-gl</h5>
+              <p>NOTE: This project is work in progress.</p>
             </div>
           </div>
         </div>

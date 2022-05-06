@@ -1,8 +1,11 @@
-// pages/subtypes2.js
+// pages/subtype-map.js
 
 import useSWR, { SWRConfig } from "swr";
 import Navlinks from "../components/Navlinks";
 import Button from "../components/Button";
+import * as ga from "../components/googleAnalytics";
+
+//
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const API = "/api/subtypes";
 

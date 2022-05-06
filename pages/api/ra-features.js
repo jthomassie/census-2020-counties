@@ -1,6 +1,6 @@
 // pages/api/ra-features.js
 
-import { connectToRamapdb } from "../../lib/ramapdb";
+import { connectToRaMapDb } from "../../lib/ramapdb";
 import { sevenCounty } from "../../geojson/sevenCounty";
 
 // is point within 7-couunty boundary
@@ -15,10 +15,11 @@ let geoquery = {
 let query = { "prperties.SUBTYPE": "Drinking Fountain" };
 
 //
-module.exports = async (req, res) => {
+const handler = async (req, res) => {
   if (req.method === "GET") {
-    const { db } = await connectToRamapdb();
+    const { db } = await connectToRaMapDb();
     const collection = await db.collection("odnr_waterway_points");
+    //
     const fountains = await collection
       .aggregate([{ $match: geoquery }])
       .toArray();
@@ -27,3 +28,5 @@ module.exports = async (req, res) => {
     res.status(404).json({ status: "Error route not found" });
   }
 };
+
+export default handler;
